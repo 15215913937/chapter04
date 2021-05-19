@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>common</title>
+</head>
+<body>
+<header>
+    <div id="header_user">
+        <ul>
+            <li>
+                    <!--    行内使用双中括号-->
+                    欢迎[[${session.loginUser.username}]]！
+            </li>
+            <li>
+                <a th:href="@{/}">Log Out</a>
+            </li>
+        </ul>
+
+    </div>
+
+</header>
+<div th:fragment="common_table">
+    <ul>
+        <li><a th:href="@{/index}">index</a></li>
+        <li><a th:href="@{/basic}">basic</a></li>
+        <li><a th:href="@{/dynamic}">dynamic</a></li>
+        <li><a th:href="@{/editable}">editable</a></li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>dynamic</title>
+</head>
+<body>
+<h1>dynamic</h1>
+<!--repplace直接将header标签里的内容替换为common页面下的id标签为header_user的内容-->
+<header th:replace="common::#header_user"></header>
+<!--repplace直接将div标签里的内容替换为common页面下的碎片fragment标签为common_table的内容-->
+<div th:replace="common::common_table"></div>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>用户名</th>
+                <th>密码</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user,states:${users}">
+<!--                count从1开始计数，index从0开始计数-->
+                <td th:text="${states.count}">id</td>
+<!--                  两种内容写法-->
+                <td th:text="${user.username}"></td>
+                <td>[[${user.password}]]</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
